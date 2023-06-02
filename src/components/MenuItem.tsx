@@ -29,7 +29,7 @@ export default function MenuItem({
       'before:absolute before:left-0 before:top-0 before:z-10 before:h-[1px] before:w-full before:-translate-x-full before:bg-slate-50/80 before:transition before:duration-300 before:will-change-transform before:content-[""] group-hover:before:translate-x-0'
   );
 
-  const { handler } = useScene();
+  const { sceneHandler: handler } = useScene();
 
   const handleClick: MouseEventHandler = evt => {
     evt.preventDefault();

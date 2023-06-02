@@ -1,6 +1,6 @@
+import { AnimatePresence } from 'framer-motion';
 import { useWindowSize } from 'usehooks-ts';
 
-import { AnimatePresence } from 'framer-motion';
 import Branding from '../components/Branding';
 import Logo from '../components/Logo';
 import MenuItem from '../components/MenuItem';
@@ -23,8 +23,11 @@ export default function Home() {
             <MenuItem scene="contact">Contact +</MenuItem>
           </ul>
         </aside>
-        <div id="content" className="h-full flex-1 overflow-y-scroll p-8">
-          <AnimatePresence>
+        <div
+          id="content"
+          className="relative h-full flex-1 overflow-y-scroll p-8"
+        >
+          <AnimatePresence mode="wait">
             <Scene />
           </AnimatePresence>
         </div>

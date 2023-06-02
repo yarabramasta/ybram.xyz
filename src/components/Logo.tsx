@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useScene } from './Scene';
 
 export default function Logo() {
-  const { handler } = useScene();
+  const { sceneHandler: handler } = useScene();
 
   return (
     <a

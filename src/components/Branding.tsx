@@ -4,7 +4,7 @@ import Logo from './Logo';
 import { useScene } from './Scene';
 
 export default function Branding() {
-  const { handler } = useScene();
+  const { sceneHandler: handler } = useScene();
 
   return (
     <a
