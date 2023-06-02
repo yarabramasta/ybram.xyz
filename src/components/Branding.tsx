@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 export default function Branding() {
   return (
-    <a href="/">
+    <a href="" onClick={evt => evt.preventDefault()}>
       <motion.div className="mb-2 flex flex-row gap-2 overflow-hidden">
         <Logo />
         <motion.h3

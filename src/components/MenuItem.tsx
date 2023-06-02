@@ -1,12 +1,17 @@
 import clsx from 'clsx';
-import { PropsWithChildren } from 'react';
+import { MouseEventHandler, PropsWithChildren } from 'react';
 import { useWindowSize } from 'usehooks-ts';
 
 export default function MenuItem({
   max = false,
   border = true,
+  handler,
   children
-}: PropsWithChildren<{ max?: boolean; border?: boolean }>) {
+}: PropsWithChildren<{
+  max?: boolean;
+  border?: boolean;
+  handler?: MouseEventHandler;
+}>) {
   const { width } = useWindowSize();
 
   const item_container_class = clsx(
@@ -23,10 +28,14 @@ export default function MenuItem({
       'before:absolute before:left-0 before:top-0 before:z-10 before:h-[1px] before:w-full before:-translate-x-full before:bg-slate-50/80 before:transition before:duration-300 before:will-change-transform before:content-[""] group-hover:before:translate-x-0'
   );
 
+  const handleClick: MouseEventHandler = handler
+    ? handler
+    : evt => evt.preventDefault();
+
   if (max) {
     return (
       <div className={item_container_class}>
-        <a href="" className="group">
+        <a href="" className="group" onClick={handleClick}>
           <li className={item_class}>{children}</li>
         </a>
       </div>
@@ -34,7 +43,7 @@ export default function MenuItem({
   }
 
   return (
-    <a href="" className={item_container_class}>
+    <a href="" className={item_container_class} onClick={handleClick}>
       <li className={item_class}>{children}</li>
     </a>
   );
