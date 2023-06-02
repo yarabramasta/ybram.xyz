@@ -1,8 +1,18 @@
 import { motion } from 'framer-motion';
 
+import { useScene } from './Scene';
+
 export default function Logo() {
+  const { handler } = useScene();
+
   return (
-    <a href="" onClick={evt => evt.preventDefault()}>
+    <a
+      href=""
+      onClick={evt => {
+        evt.preventDefault();
+        handler('index');
+      }}
+    >
       <motion.svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"

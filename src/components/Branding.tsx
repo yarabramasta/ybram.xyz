@@ -1,10 +1,19 @@
 import { motion } from 'framer-motion';
 
 import Logo from './Logo';
+import { useScene } from './Scene';
 
 export default function Branding() {
+  const { handler } = useScene();
+
   return (
-    <a href="" onClick={evt => evt.preventDefault()}>
+    <a
+      href=""
+      onClick={evt => {
+        evt.preventDefault();
+        handler('index');
+      }}
+    >
       <motion.div className="mb-2 flex flex-row gap-2 overflow-hidden">
         <Logo />
         <motion.h3
