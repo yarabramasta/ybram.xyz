@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon-light">
+<g id="icon-light_2">
+<path id="rect-r" d="M27 5C21.4771 5 17 9.47715 17 15V25C22.5229 25 27 20.5229 27 15V5Z" fill="#E2E8F0"/>
+<path id="rect-l" d="M5 5C10.5229 5 15 9.47715 15 15V25C9.47715 25 5 20.5229 5 15V5Z" fill="#E2E8F0"/>
+<path id="circ" d="M16 27C18.2091 27 20 25.2091 20 23C20 20.7909 18.2091 19 16 19C13.7909 19 12 20.7909 12 23C12 25.2091 13.7909 27 16 27Z" fill="#F8FAFC"/>
+</g>
+</g>
+</svg>
