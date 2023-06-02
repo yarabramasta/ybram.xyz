@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :focus,
+  a,
+  input,
+  button {
+    @apply outline-none outline-transparent;
+  }
+
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.safe-h-screen {
+  height: calc(
+    100vh - env(safe-area-inset-bottom, 0)- env(safe-area-inset-top, 0)
+  );
+  height: 100vh;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .safe-h-screen {
+    height: -webkit-fill-available;
+  }
+}
