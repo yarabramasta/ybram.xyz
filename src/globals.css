@@ -10,6 +10,10 @@
     @apply outline-none outline-transparent;
   }
 
+  ::selection {
+    @apply bg-violet-800/20 text-violet-800;
+  }
+
   body {
     -webkit-tap-highlight-color: transparent;
   }
