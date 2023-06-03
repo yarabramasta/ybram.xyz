@@ -2,6 +2,7 @@ import { motion, type Variants } from 'framer-motion';
 import { useRef, type PropsWithChildren } from 'react';
 import { useOnClickOutside, useWindowSize } from 'usehooks-ts';
 
+import clsx from 'clsx';
 import useContent from './useContent';
 
 function Container({ children }: PropsWithChildren) {
@@ -24,7 +25,7 @@ function Container({ children }: PropsWithChildren) {
   return (
     <div
       ref={container}
-      className="absolute left-0 top-0 h-full w-full max-w-screen-md md:max-w-xs cursor-default space-y-6 overflow-y-scroll p-8 text-xs md:py-16"
+      className="absolute left-0 top-0 h-full w-full max-w-screen-md cursor-default space-y-6 overflow-y-scroll p-8 text-xs md:max-w-sm md:py-16"
     >
       {children}
     </div>
@@ -63,20 +64,28 @@ export default function Section({
       initial="initial"
       animate="animate"
       exit="exit"
-      className="w-full space-y-2 border-t border-t-neutral-50/20 pt-2 [&_p]:leading-tight"
+      className="w-full space-y-2 border-t border-t-neutral-50/20 pt-1 [&_p]:leading-tight [&_p]:opacity-90"
     >
-      <h3>{title}</h3>
+      <h3 className="font-medium">{title}</h3>
       {children}
     </motion.section>
   );
 }
 
-function List({ items }: { items: string[] }) {
+function List({ items, column = true }: { items: string[]; column?: boolean }) {
   return (
-    <div className="flex flex-row gap-6 [&_ul_li]:before:mr-1 [&_ul_li]:before:content-['-']">
-      <ul className="columns-2">
+    <div className={clsx('flex flex-row gap-6')}>
+      <ul className={clsx(column && 'columns-2 gap-6')}>
         {items.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li
+            key={index}
+            className={clsx(
+              'opacity-90 before:mr-1',
+              item.length > 0 ? 'before:content-["-"]' : 'before:content-[""]'
+            )}
+          >
+            {item}
+          </li>
         ))}
       </ul>
     </div>

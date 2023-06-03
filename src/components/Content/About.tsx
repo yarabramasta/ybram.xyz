@@ -7,6 +7,13 @@ const services = [
   'Mobile app'
 ];
 
+const tech_stack: Record<string, Array<string>> = {
+  Frontend: ['React.js', 'Next.js', 'Flutter'],
+  Backend: ['GraphQL', 'Firebase', 'RESTful'],
+  Platform: ['Vercel', 'GCP', ''],
+  Design: ['Figma', 'Rive', '']
+};
+
 export default function About() {
   return (
     <Widget.Container>
@@ -29,6 +36,16 @@ export default function About() {
       </Widget.Section>
       <Widget.Section id="services" title="Services" index={2}>
         <Widget.List items={services} />
+      </Widget.Section>
+      <Widget.Section id="tech-stack" title="Tech Stack" index={2}>
+        <div className="columns-4">
+          {Object.keys(tech_stack).map(k => (
+            <div className="space-y-1" key={`tech-stack:${k}`}>
+              <h3>{k}</h3>
+              <Widget.List items={tech_stack[k]} column={false} />
+            </div>
+          ))}
+        </div>
       </Widget.Section>
     </Widget.Container>
   );
