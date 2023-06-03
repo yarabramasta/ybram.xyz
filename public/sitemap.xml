@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ybram.xyz</loc>
-    <lastmod>2023-05-30T08:18:37.515Z</lastmod>
-  </url>
+<url>
+<loc>https://ybram.xyz</loc>
+<lastmod>2023-06-03</lastmod>
+</url>
+<url>
+<loc>https://ybram.xyz/?content=default</loc>
+<lastmod>2023-06-03</lastmod>
+</url>
+<url>
+<loc>https://ybram.xyz/?content=author</loc>
+<lastmod>2023-06-03</lastmod>
+</url>
+<url>
+<loc>https://ybram.xyz/?content=about</loc>
+<lastmod>2023-06-03</lastmod>
+</url>
+<url>
+<loc>https://ybram.xyz/?content=contact</loc>
+<lastmod>2023-06-03</lastmod>
+</url>
 </urlset>
