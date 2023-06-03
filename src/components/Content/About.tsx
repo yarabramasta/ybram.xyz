@@ -3,7 +3,6 @@ import { Widget } from './Widget';
 const services = [
   'Handcrafted design',
   'Static or fullstack',
-  'GraphQL API',
   'Deployment & SEO',
   'Mobile app'
 ];
