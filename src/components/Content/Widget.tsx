@@ -24,7 +24,7 @@ function Container({ children }: PropsWithChildren) {
   return (
     <div
       ref={container}
-      className="absolute left-0 top-0 h-full w-full max-w-xs cursor-default space-y-6 overflow-y-scroll p-8 text-xs md:py-16"
+      className="absolute left-0 top-0 h-full w-full max-w-screen-md md:max-w-xs cursor-default space-y-6 overflow-y-scroll p-8 text-xs md:py-16"
     >
       {children}
     </div>
