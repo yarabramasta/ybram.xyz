@@ -1,5 +1,11 @@
 import { AnimatePresence } from 'framer-motion';
-import { useState, type PropsWithChildren } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type PropsWithChildren
+} from 'react';
 import { useWindowSize } from 'usehooks-ts';
 
 import Hero from '../Hero';
@@ -10,9 +16,12 @@ import { ContentContext, type ContentType } from './store';
 import useContent from './useContent';
 
 export function ContentProvider({ children }: PropsWithChildren) {
+  const url = useMemo(() => new URL(window.location.href), []);
+  const q = url.searchParams.get('content') as ContentType | null;
+  const [content, setContent] = useState<ContentType>(q ?? 'default');
+
   const { width } = useWindowSize();
   const [mouse, setMouse] = useState(width > 768);
-  const [content, setContent] = useState<ContentType>('default');
 
   function handleCursor(content: ContentType) {
     const rootCursorStyle = (cursorType: 'default' | 'none') => {
@@ -28,6 +37,19 @@ export function ContentProvider({ children }: PropsWithChildren) {
     }
   }
 
+  const handleContentUpdate = useCallback(
+    (val: ContentType) => {
+      setContent(val);
+      url.searchParams.set('content', val);
+      window.history.replaceState({}, '', url.toString());
+    },
+    [url]
+  );
+
+  useEffect(() => {
+    handleContentUpdate(q ?? 'default');
+  }, [q, handleContentUpdate]);
+
   return (
     <ContentContext.Provider
       value={{
@@ -35,10 +57,8 @@ export function ContentProvider({ children }: PropsWithChildren) {
         mouse,
         setMouse,
         navigate: val => {
-          val !== content ? setContent(val) : {};
-          if (width > 768) {
-            handleCursor(val);
-          }
+          if (val !== content) handleContentUpdate(val);
+          if (width > 768) handleCursor(val);
         }
       }}
     >

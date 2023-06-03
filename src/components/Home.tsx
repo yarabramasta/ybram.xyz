@@ -1,5 +1,5 @@
 import { motion, useMotionValue } from 'framer-motion';
-import type { MouseEventHandler, PropsWithChildren } from 'react';
+import { MouseEventHandler, PropsWithChildren } from 'react';
 import useMeasure from 'react-use-measure';
 import { useWindowSize } from 'usehooks-ts';
 
