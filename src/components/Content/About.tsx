@@ -1,11 +1,11 @@
 import { Widget } from './Widget';
 
 const services = [
-  'Handcrafted Design',
+  'Handcrafted design',
   'Static or fullstack',
-  'GraphQL',
-  'Deployment',
-  'Maintenance'
+  'GraphQL API',
+  'Deployment & SEO',
+  'Mobile app'
 ];
 
 export default function About() {
