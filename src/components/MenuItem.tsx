@@ -41,7 +41,12 @@ export default function MenuItem({
   if (max) {
     return (
       <div className={item_container_class} data-outside-content="1">
-        <a href="" id={to} className="group" onClick={handleClick}>
+        <a
+          href={`/?content=${to}`}
+          id={to}
+          className="group"
+          onClick={handleClick}
+        >
           <li id={to} className={item_class}>
             {children}
           </li>
@@ -51,7 +56,12 @@ export default function MenuItem({
   }
 
   return (
-    <a href="" id={to} className={item_container_class} onClick={handleClick}>
+    <a
+      href={`/?content=${to}`}
+      id={to}
+      className={item_container_class}
+      onClick={handleClick}
+    >
       <li id={to} className={item_class}>
         {children}
       </li>
