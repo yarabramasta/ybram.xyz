@@ -73,7 +73,7 @@ export default function Section({
 
 function List({ items }: { items: string[] }) {
   return (
-    <div className="flex max-h-60 flex-row gap-6 [&_ul_li]:before:mr-1 [&_ul_li]:before:content-['-']">
+    <div className="flex flex-row gap-6 [&_ul_li]:before:mr-1 [&_ul_li]:before:content-['-']">
       <ul className="columns-2">
         {items.map((item, index) => (
           <li key={index}>{item}</li>
