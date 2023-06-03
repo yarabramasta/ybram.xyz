@@ -11,7 +11,11 @@
   }
 
   ::selection {
-    @apply bg-violet-800/20 text-violet-800;
+    @apply bg-violet-800/20 text-violet-400;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 
   body {
