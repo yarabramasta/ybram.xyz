@@ -1,5 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import { useState, type PropsWithChildren } from 'react';
+import { useWindowSize } from 'usehooks-ts';
 
 import Hero from '../Hero';
 import About from './About';
@@ -9,13 +10,36 @@ import { ContentContext, type ContentType } from './store';
 import useContent from './useContent';
 
 export function ContentProvider({ children }: PropsWithChildren) {
+  const { width } = useWindowSize();
+  const [mouse, setMouse] = useState(width > 768);
   const [content, setContent] = useState<ContentType>('default');
+
+  function handleCursor(content: ContentType) {
+    const rootCursorStyle = (cursorType: 'default' | 'none') => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      document.getElementById('root')!.style.cursor = cursorType;
+    };
+
+    if (content !== 'default') {
+      rootCursorStyle('none');
+    } else {
+      setMouse(false);
+      rootCursorStyle('default');
+    }
+  }
 
   return (
     <ContentContext.Provider
       value={{
         current: content,
-        navigate: val => (val !== content ? setContent(val) : {})
+        mouse,
+        setMouse,
+        navigate: val => {
+          val !== content ? setContent(val) : {};
+          if (width > 768) {
+            handleCursor(val);
+          }
+        }
       }}
     >
       {children}

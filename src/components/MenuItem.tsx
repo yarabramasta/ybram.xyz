@@ -16,6 +16,7 @@ export default function MenuItem({
   to: ContentType;
 }>) {
   const { width } = useWindowSize();
+  const { navigate, current } = useContent();
 
   const item_container_class = clsx(
     'relative w-fit overflow-hidden border-t-0 border-t-neutral-50/20 pt-1 md:w-full md:border-t',
@@ -25,13 +26,13 @@ export default function MenuItem({
   );
 
   const item_class = clsx(
-    'overflow-x-hidden',
+    'overflow-x-hidden after:ml-1',
     width > 768 &&
       !!border &&
-      'before:absolute before:left-0 before:top-0 before:z-10 before:h-[1px] before:w-full before:-translate-x-full before:bg-slate-50/80 before:transition before:duration-300 before:will-change-transform before:content-[""] group-hover:before:translate-x-0'
+      'before:absolute before:left-0 before:top-0 before:z-10 before:h-[1px] before:w-full before:-translate-x-full before:bg-slate-50/80 before:transition before:duration-300 before:will-change-transform before:content-[""] group-hover:before:translate-x-0',
+    current === to ? 'after:content-["-"]' : 'after:content-["+"]'
   );
 
-  const { navigate, current } = useContent();
   const handleClick: MouseEventHandler = evt => {
     evt.preventDefault();
     navigate(current === to ? 'default' : to);
@@ -40,12 +41,7 @@ export default function MenuItem({
   if (max) {
     return (
       <div className={item_container_class} data-outside-content="1">
-        <a
-          href=""
-          id={to}
-          className="group"
-          onClick={handleClick}
-        >
+        <a href="" id={to} className="group" onClick={handleClick}>
           <li id={to} className={item_class}>
             {children}
           </li>
@@ -55,12 +51,7 @@ export default function MenuItem({
   }
 
   return (
-    <a
-      href=""
-      id={to}
-      className={item_container_class}
-      onClick={handleClick}
-    >
+    <a href="" id={to} className={item_container_class} onClick={handleClick}>
       <li id={to} className={item_class}>
         {children}
       </li>

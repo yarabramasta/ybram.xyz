@@ -11,11 +11,10 @@ function Container({ children }: PropsWithChildren) {
 
   useOnClickOutside(container, evt => {
     if (width > 768) {
-      const attr = (evt.target as HTMLElement).getAttribute(
-        'data-outside-content'
-      );
-
+      const target = evt.target as HTMLElement;
+      const attr = target.getAttribute('data-outside-content');
       const isOutside = parseInt(attr ?? '0') === 1;
+
       if (isOutside) {
         navigate('default');
       }
