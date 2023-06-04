@@ -27,7 +27,7 @@ export default function Layout({
         'w-full flex-1 space-y-8 overflow-y-scroll p-8 md:pt-16',
         'cursor-default',
         !max && 'md:max-w-sm',
-        width > 768 ? 'h-fit' : 'h-full'
+        width > 768 && !max ? 'h-fit' : 'h-full'
       )}
     >
       {children}
