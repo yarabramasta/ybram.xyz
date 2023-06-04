@@ -1,36 +1,34 @@
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { useEffect, useRef, type PropsWithChildren } from 'react';
+import { useRef, type PropsWithChildren } from 'react';
 import { useOnClickOutside, useWindowSize } from 'usehooks-ts';
 
-import { useXCursor } from './XCursor';
-
-export default function Layout({ children }: PropsWithChildren) {
+export default function Layout({
+  children,
+  max = false
+}: PropsWithChildren<{ max?: boolean }>) {
   const { height, width } = useWindowSize();
   const container = useRef<HTMLDivElement>(null);
-  const { notifier, render: xcursor } = useXCursor();
   const router = useRouter();
 
-  useOnClickOutside(container, () => {
+  useOnClickOutside(container, ({ target }) => {
     if (width > 768) {
-      if (xcursor) {
-        notifier(false);
-        void router.push('/');
+      if ((target as HTMLElement).tagName !== 'LI') {
+        void router.replace('/');
       }
     }
   });
 
-  useEffect(() => {
-    if (width < 768) notifier(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [width]);
-
   return (
     <motion.div
       ref={container}
-      id="content:layout"
-      className="w-full flex-1 overflow-y-scroll md:max-w-screen-sm"
-      style={{ height: width > 768 ? height : height - 2.5 * 16 }}
+      className={clsx(
+        'relative w-full flex-1 space-y-8 overflow-y-scroll p-8 md:pt-16',
+        !max && 'md:max-w-sm',
+        max ? 'h-full' : 'h-fit'
+      )}
+      style={{ maxHeight: width > 768 ? height : height - 2.5 * 16 }}
     >
       {children}
     </motion.div>
