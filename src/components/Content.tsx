@@ -60,9 +60,14 @@ function List({ items, column = true }: { items: string[]; column?: boolean }) {
   );
 }
 
+function Description({ children }: PropsWithChildren) {
+  return <p>{children}</p>;
+}
+
 const Content = {
   Section,
-  List
+  List,
+  Description
 };
 
 export default Content;

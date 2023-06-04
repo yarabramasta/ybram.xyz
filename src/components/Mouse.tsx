@@ -64,7 +64,7 @@ export default function Mouse() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed z-50 text-xs leading-none tracking-tighter"
+      className="pointer-events-none fixed z-50 text-xs font-medium leading-none tracking-tighter opacity-80"
       style={{ x, y }}
       layout
     >
