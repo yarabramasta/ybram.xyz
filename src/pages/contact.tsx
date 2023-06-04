@@ -26,10 +26,12 @@ export default function Contact() {
   return (
     <Layout>
       <Content.Section title="Business Inquiries" index={0}>
-        <p>Contact: Yara Bramasta</p>
-        <ExternalLink href="mailto:bramasta.yb@gmail.com">
-          bramasta.yb@gmail.com
-        </ExternalLink>
+        <div>
+          <p>Contact: Yara Bramasta</p>
+          <ExternalLink href="mailto:bramasta.yb@gmail.com">
+            bramasta.yb@gmail.com
+          </ExternalLink>
+        </div>
       </Content.Section>
       <Content.Section title="Address" index={1}>
         <ul className="[&_li]:text-xs [&_li]:opacity-90">

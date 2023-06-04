@@ -8,7 +8,7 @@ export default function Layout({
   children,
   max = false
 }: PropsWithChildren<{ max?: boolean }>) {
-  const { height, width } = useWindowSize();
+  const { width } = useWindowSize();
   const container = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -24,11 +24,11 @@ export default function Layout({
     <motion.div
       ref={container}
       className={clsx(
-        'relative w-full flex-1 space-y-8 overflow-y-scroll p-8 md:pt-16',
+        'w-full flex-1 space-y-8 overflow-y-scroll p-8 md:pt-16',
+        'cursor-default',
         !max && 'md:max-w-sm',
-        max ? 'h-full' : 'h-fit'
+        width > 768 ? 'h-fit' : 'h-full'
       )}
-      style={{ maxHeight: width > 768 ? height : height - 2.5 * 16 }}
     >
       {children}
     </motion.div>

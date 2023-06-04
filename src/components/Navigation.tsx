@@ -41,7 +41,7 @@ function NavItem({
 
 export default function Navigation() {
   return (
-    <nav className="h-10 w-full border-t border-t-neutral-50/20 md:h-full md:max-w-xs md:border-t-0 [&_ul_li]:text-xs">
+    <nav className="h-14 w-full border-t border-t-neutral-50/20 md:h-full md:max-w-xs md:border-t-0 [&_ul_li]:text-xs">
       <ul className="flex h-full w-full flex-row items-center justify-between gap-4 px-8 py-2 md:flex-col md:p-16">
         <NavItem href="/author">Author</NavItem>
         <NavItem href="/about" max>
