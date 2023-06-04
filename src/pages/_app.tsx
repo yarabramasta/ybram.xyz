@@ -12,10 +12,17 @@ import '../globals.css';
 
 function RootLayout({ children }: PropsWithChildren) {
   const { height } = useWindowSize();
-  const { mounted } = useMouseState();
+  const { mounted, x, y } = useMouseState();
 
   return (
-    <div className="flex flex-col-reverse md:flex-row" style={{ height }}>
+    <div
+      className="flex flex-col-reverse md:flex-row"
+      style={{ height }}
+      onMouseMove={evt => {
+        x.set(evt.clientX - 16);
+        y.set(evt.clientY - 8);
+      }}
+    >
       <Navigation />
       {mounted && <Mouse />}
       {children}

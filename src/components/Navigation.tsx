@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { type PropsWithChildren } from 'react';
 import { useWindowSize } from 'usehooks-ts';
+import { useMouseState } from './Mouse';
 
 function NavItem({
   href,
@@ -11,12 +12,15 @@ function NavItem({
 }: PropsWithChildren<{ href: string; max?: boolean }>) {
   const router = useRouter();
   const { width } = useWindowSize();
+  const { notifier } = useMouseState();
 
   return (
     <div
       className={clsx(max && 'md:flex-1', 'w-fit overflow-hidden md:w-full')}
     >
       <Link
+        onMouseLeave={() => notifier(router.pathname !== '/')}
+        onMouseEnter={() => notifier(false)}
         href={router.pathname === href ? '/' : href}
         className={clsx('group relative')}
       >

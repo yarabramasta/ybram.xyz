@@ -2,6 +2,7 @@ import { MotionValue, motion, useMotionValue } from 'framer-motion';
 import { useRouter } from 'next/router';
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -36,16 +37,15 @@ export function MouseState({ children }: PropsWithChildren) {
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
 
-  function notifier(val: boolean) {
+  const notifier = useCallback((val: boolean) => {
     setMounted(val);
-
     const root = document.getElementById('__next') as HTMLDivElement;
     if (!val) {
       root.style.removeProperty('cursor');
     } else {
       root.style.cursor = 'none';
     }
-  }
+  }, []);
 
   useEffect(() => {
     if (width < 768) notifier(false);
