@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { type PropsWithChildren } from 'react';
+import { useWindowSize } from 'usehooks-ts';
 
 function NavItem({
   href,
@@ -9,15 +10,21 @@ function NavItem({
   children
 }: PropsWithChildren<{ href: string; max?: boolean }>) {
   const router = useRouter();
+  const { width } = useWindowSize();
 
   return (
-    <div className={clsx(max && 'md:flex-1', 'w-full overflow-hidden')}>
+    <div
+      className={clsx(max && 'md:flex-1', 'w-fit overflow-hidden md:w-full')}
+    >
       <Link
         href={router.pathname === href ? '/' : href}
         className={clsx('group relative')}
       >
-        <span className="absolute left-0 top-0 z-10 h-[1px] w-full -translate-x-full bg-neutral-50/80 transition duration-300 will-change-transform group-hover:translate-x-0" />
+        {width > 768 && (
+          <span className="absolute left-0 top-0 z-10 h-[1px] w-full -translate-x-full bg-neutral-50/80 transition duration-300 will-change-transform group-hover:translate-x-0" />
+        )}
         <li
+          id="nav:item"
           className={clsx(
             'border-t-0 border-t-neutral-50/20 pt-1 md:border-t',
             router.pathname === href
