@@ -1,4 +1,5 @@
-import { Widget } from './Widget';
+import Content from '~/components/Content';
+import Layout from '~/components/Layout';
 
 const services = [
   'Handcrafted design',
@@ -16,8 +17,8 @@ const tech_stack: Record<string, Array<string>> = {
 
 export default function About() {
   return (
-    <Widget.Container>
-      <Widget.Section id="introduction" title="Introduction" index={0}>
+    <Layout>
+      <Content.Section index={0} title="Introduction">
         <p>
           Hello, welcome to my little website, which I&apos;ve created to
           showcase my experiences throughout the years as a designer-developer.
@@ -25,28 +26,28 @@ export default function About() {
           designer and developer to help you achieve your goals with innovative
           and user-centric solutions.
         </p>
-      </Widget.Section>
-      <Widget.Section id="specialties" title="Specialties" index={1}>
+      </Content.Section>
+      <Content.Section index={1} title="Specialties">
         <p>
           I primarily specialize in website development, covering the entire
           process from planning and design to development and production.
           However, I also offer support for mobile app development as an
           additional service.
         </p>
-      </Widget.Section>
-      <Widget.Section id="services" title="Services" index={2}>
-        <Widget.List items={services} />
-      </Widget.Section>
-      <Widget.Section id="tech-stack" title="Tech Stack" index={2}>
+      </Content.Section>
+      <Content.Section index={2} title="Services">
+        <Content.List items={services} />
+      </Content.Section>
+      <Content.Section index={3} title="Tech Stack">
         <div className="columns-4">
           {Object.keys(tech_stack).map(k => (
             <div className="space-y-1" key={`tech-stack:${k}`}>
-              <h3>{k}</h3>
-              <Widget.List items={tech_stack[k]} column={false} />
+              <h3 className="text-xs">{k}</h3>
+              <Content.List items={tech_stack[k] as string[]} column={false} />
             </div>
           ))}
         </div>
-      </Widget.Section>
-    </Widget.Container>
+      </Content.Section>
+    </Layout>
   );
 }

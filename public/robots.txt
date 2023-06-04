@@ -1,5 +1,9 @@
-User-Agent: *
+# *
+User-agent: *
 Allow: /
 
+# Host
 Host: https://ybram.xyz
+
+# Sitemaps
 Sitemap: https://ybram.xyz/sitemap.xml
