@@ -46,7 +46,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <DefaultSeo {...nextSeoConfig} />
       <MouseState>
         <RootLayout>
-          <AnimatePresence initial={router.pathname !== '/'} mode="wait">
+          <AnimatePresence initial={router.pathname === '/'} mode="wait">
             <Component key={router.route} {...pageProps} />
           </AnimatePresence>
         </RootLayout>
