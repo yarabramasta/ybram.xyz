@@ -1,4 +1,9 @@
-import { MotionValue, motion, useMotionValue } from 'framer-motion';
+import {
+  MotionValue,
+  motion,
+  useMotionValue,
+  useWillChange
+} from 'framer-motion';
 import { useRouter } from 'next/router';
 import {
   createContext,
@@ -61,11 +66,12 @@ export function MouseState({ children }: PropsWithChildren) {
 
 export default function Mouse() {
   const { x, y } = useMouseState();
+  const willChange = useWillChange();
 
   return (
     <motion.div
       className="pointer-events-none fixed z-50 text-xs font-medium leading-none tracking-tighter opacity-80"
-      style={{ x, y }}
+      style={{ x, y, willChange }}
       layout
     >
       close x

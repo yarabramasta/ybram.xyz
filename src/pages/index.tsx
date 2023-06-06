@@ -1,6 +1,6 @@
 import { motion, type Variants } from 'framer-motion';
 
-import Layout from '~/components/Layout';
+import Content from '~/components/Content';
 
 const copyright_vars: Variants = {
   initial: { opacity: 0, y: -5 },
@@ -23,7 +23,7 @@ const copyright_vars: Variants = {
 
 export default function Home() {
   return (
-    <Layout max>
+    <Content.Layout max>
       <div className="flex h-full w-full items-center justify-center">
         <motion.p
           variants={copyright_vars}
@@ -37,6 +37,6 @@ export default function Home() {
           &copy; 2023.
         </motion.p>
       </div>
-    </Layout>
+    </Content.Layout>
   );
 }

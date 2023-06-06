@@ -1,5 +1,4 @@
 import Content from '~/components/Content';
-import Layout from '~/components/Layout';
 
 const services = [
   'Handcrafted design',
@@ -17,7 +16,7 @@ const tech_stack: Record<string, Array<string>> = {
 
 export default function About() {
   return (
-    <Layout>
+    <Content.Layout>
       <Content.Section index={0} title="Introduction">
         <p>
           Hello, welcome to my little website, which I&apos;ve created to
@@ -48,6 +47,6 @@ export default function About() {
           ))}
         </div>
       </Content.Section>
-    </Layout>
+    </Content.Layout>
   );
 }
