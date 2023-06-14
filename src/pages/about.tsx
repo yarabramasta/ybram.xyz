@@ -19,11 +19,11 @@ export default function About() {
     <Content.Layout>
       <Content.Section index={0} title="Introduction">
         <p>
-          Hello, welcome to my little website, which I&apos;ve created to
-          showcase my experiences throughout the years as a designer-developer.
-          With a focus on delivering quality results, I offer my expertise as a
-          designer and developer to help you achieve your goals with innovative
-          and user-centric solutions.
+          Welcome to my little website, which I&apos;ve created to showcase my
+          experiences throughout the years as a designer-developer. With a focus
+          on delivering quality results, I offer my expertise as a designer and
+          developer to help you achieve your goals with innovative and
+          user-centric solutions.
         </p>
       </Content.Section>
       <Content.Section index={1} title="Specialties">

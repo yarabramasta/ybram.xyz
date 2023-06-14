@@ -81,14 +81,14 @@ function Section({
 
 function List({ items, column = true }: { items: string[]; column?: boolean }) {
   return (
-    <div className={clsx('flex flex-row gap-6')}>
+    <div className="flex flex-row gap-6">
       <ul className={clsx(column && 'columns-2 gap-6')}>
         {items.map((item, index) => (
           <li
             key={index}
             className={clsx(
               'text-xs opacity-90 before:mr-1',
-              item.length > 0 ? 'before:content-["-"]' : 'before:content-[""]'
+              item.length > 1 ? 'before:content-["-"]' : 'before:content-[""]'
             )}
           >
             {item}
