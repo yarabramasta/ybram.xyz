@@ -1,7 +1,7 @@
 import Content from '~/components/Content';
 
 const experiences: Record<string, Array<string>> = {
-  '2021': ['Internship at PT. Retgoo Sentris Informa'],
+  '2021': ['Software Developer Intern at PT. Retgoo Sentris Informa'],
   '2022': ['Mobile App Developer at PUSIM Unmer (Present)'],
   '2023': ['UI/UX Mentor for Alzam Creative Project (Present)']
 };
@@ -14,7 +14,7 @@ const skills = [
   'Vite',
   'Tailwind',
   'Flutter',
-  'Pothos - Yoga',
+  'Pothos-Yoga',
   'Express',
   'Prisma',
   'Firebase',
