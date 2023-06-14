@@ -79,10 +79,18 @@ function Section({
   );
 }
 
-function List({ items, column = true }: { items: string[]; column?: boolean }) {
+function List({
+  items,
+  column = true,
+  className
+}: {
+  items: string[];
+  column?: boolean;
+  className?: string;
+}) {
   return (
     <div className="flex flex-row gap-6">
-      <ul className={clsx(column && 'columns-2 gap-6')}>
+      <ul className={clsx(column && 'columns-2 gap-6', className)}>
         {items.map((item, index) => (
           <li
             key={index}

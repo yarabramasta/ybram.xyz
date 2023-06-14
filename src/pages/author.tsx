@@ -1,17 +1,28 @@
 import Content from '~/components/Content';
 
 const experiences: Record<string, Array<string>> = {
-  '2021': ['Internship at PT. Retgoo Sentris Informa (Mar - Sep)'],
-  '2022': ['Mobile App Developer at PUSIM Unmer (Dec - Present)'],
-  '2023': ['UI/UX Mentor for Alzam Creative Project (May - Jun)']
+  '2021': ['Internship at PT. Retgoo Sentris Informa'],
+  '2022': ['Mobile App Developer at PUSIM Unmer (Present)'],
+  '2023': ['UI/UX Mentor for Alzam Creative Project (Present)']
 };
 
-const skills: Record<string, Array<string>> = {
-  Frontend: ['React', 'Next.js', 'Flutter'],
-  Backend: ['Node.js', 'Prisma', 'Firebase'],
-  Tools: ['Figma', 'Vite', ''],
-  Platform: ['Vercel', 'GCP', '']
-};
+const skills = [
+  'Node.js',
+  'Deno',
+  'Next.js',
+  'React',
+  'Vite',
+  'Tailwind',
+  'Flutter',
+  'Pothos - Yoga',
+  'Express',
+  'Prisma',
+  'Firebase',
+  'Git',
+  'Docker',
+  'Planetscale',
+  'Figma'
+];
 
 export default function Author() {
   return (
@@ -37,23 +48,18 @@ export default function Author() {
             .map(k => (
               <div className="space-y-1" key={`experiences:${k}`}>
                 <h3 className="text-xs">{k}</h3>
-                <Content.List
-                  items={experiences[k] as string[]}
-                  column={false}
-                />
+                <div className="pl-2">
+                  <Content.List
+                    items={experiences[k] as string[]}
+                    column={false}
+                  />
+                </div>
               </div>
             ))}
         </div>
       </Content.Section>
       <Content.Section title="Skills" index={2}>
-        <div className="columns-4">
-          {Object.keys(skills).map(k => (
-            <div className="space-y-1" key={`skills:${k}`}>
-              <h3 className="text-xs">{k}</h3>
-              <Content.List items={skills[k] as string[]} column={false} />
-            </div>
-          ))}
-        </div>
+        <Content.List items={skills} className="columns-3" column={false} />
       </Content.Section>
     </Content.Layout>
   );
